@@ -1,0 +1,5 @@
+  File "/home/robotica/ros2_ws/src/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4/nodo_robot.py", line 2
+    from servoController.ServoController
+                                        ^
+SyntaxError: invalid syntax
+
