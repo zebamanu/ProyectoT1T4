@@ -1,0 +1,5 @@
+  File "/home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4/nodo_robot.py", line 3
+    from geometry_msgs/Vector3 import Vector3 #Importo tipo de mensajes que deseo utilizar
+                      ^
+SyntaxError: invalid syntax
+

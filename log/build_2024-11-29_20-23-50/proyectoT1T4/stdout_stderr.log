@@ -1,0 +1,20 @@
+running egg_info
+writing ../../build/proyectoT1T4/proyectoT1T4.egg-info/PKG-INFO
+writing dependency_links to ../../build/proyectoT1T4/proyectoT1T4.egg-info/dependency_links.txt
+writing entry points to ../../build/proyectoT1T4/proyectoT1T4.egg-info/entry_points.txt
+writing requirements to ../../build/proyectoT1T4/proyectoT1T4.egg-info/requires.txt
+writing top-level names to ../../build/proyectoT1T4/proyectoT1T4.egg-info/top_level.txt
+reading manifest file '../../build/proyectoT1T4/proyectoT1T4.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/proyectoT1T4/proyectoT1T4.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/proyectoT1T4/proyectoT1T4.egg-info to /home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4-0.0.0-py3.12.egg-info
+running install_scripts
+Installing nodo_robot script to /home/robotica/ros2_ws/install/proyectoT1T4/lib/proyectoT1T4
+writing list of installed files to '/home/robotica/ros2_ws/build/proyectoT1T4/install.log'

@@ -1,0 +1,2 @@
+[console_scripts]
+nodo_robot = proyectoT1T4.nodo_robot:main
