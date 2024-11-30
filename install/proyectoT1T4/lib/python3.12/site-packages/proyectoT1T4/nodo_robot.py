@@ -1,6 +1,7 @@
 import rclpy #ROS Client Library for the Python language.
 from rclpy.node import Node #Importo clase Nodo
 from geometry_msgs.msg import Vector3 #Importo tipo de mensajes que deseo utilizar
+from std_msgs.msg import Float32
 import time
 import serial
 
@@ -19,12 +20,30 @@ class ServoController:
         except Exception as e:
             print(f"Ocurrió un error: {e}")
 
+    def walk(self):
+        walkSequence = [ {'id' : 2, 'pulsewidth' : 1520}, {'id' : 4,   'pulsewidth' : 2280},
+                         {'id' : 10, 'pulsewidth' : 1520}, 
+                         {'id' : 23, 'pulsewidth' : 1920},
+                         {'id' : 29, 'pulsewidth' : 1430}, {'id' : 31, 'pulsewidth' : 1210}]
+        walkSequence2 = [ {'id' : 2, 'pulsewidth' : 2050}, {'id' : 4,   'pulsewidth' : 1520},
+                         {'id' : 10, 'pulsewidth' : 990}, 
+                         {'id' : 23, 'pulsewidth' : 1300},
+                         {'id' : 29, 'pulsewidth' : 950}, {'id' : 31, 'pulsewidth' : 1750}]
+        for i in range(0,3):
+            self.moveMultipleServos(walkSequence,700,0)
+            time.sleep(0.7)
+            self.moveMultipleServos(walkSequence2,700,0)
+            time.sleep(0.7)
+        
+
+
+
     def sendInitialValues(self):
-        initialValues = [{'id' : 1, 'pulsewidth' : 1480}, {'id' : 2, 'pulsewidth' : 1850}, {'id' : 3, 'pulsewidth' : 2300}, {'id' : 4, 'pulsewidth' : 1930}, {'id' : 5, 'pulsewidth' : 1920},
+        initialValues = [{'id' : 1, 'pulsewidth' : 1550}, {'id' : 2, 'pulsewidth' : 1800}, {'id' : 3, 'pulsewidth' : 2300}, {'id' : 4, 'pulsewidth' : 1800}, {'id' : 5, 'pulsewidth' : 1920},
                          {'id' : 10, 'pulsewidth' : 1100}, {'id' : 11, 'pulsewidth' : 760}, {'id' : 12, 'pulsewidth' : 1660},
                          {'id' : 16, 'pulsewidth' : 1830},
                          {'id' : 21, 'pulsewidth' : 1150}, {'id' : 22, 'pulsewidth' : 1950},{'id' : 23, 'pulsewidth' : 1600},
-                         {'id' : 28, 'pulsewidth' : 850}, {'id' : 29, 'pulsewidth' : 1230}, {'id' : 30, 'pulsewidth' : 960}, {'id' : 31, 'pulsewidth' : 1500}, {'id' : 32, 'pulsewidth' : 700}]
+                         {'id' : 28, 'pulsewidth' : 900}, {'id' : 29, 'pulsewidth' : 1200}, {'id' : 30, 'pulsewidth' : 1000}, {'id' : 31, 'pulsewidth' : 1500}, {'id' : 32, 'pulsewidth' : 720}]
         self.moveMultipleServos(initialValues)
         
     def moveServo(self, id, pulsewidth, velocity = 1000, delay = 0):
@@ -50,8 +69,13 @@ class MinimalSubscriber(Node):
         self.servoController = ServoController()
         self.subscription = self.create_subscription(
             Vector3,
-            'topicoRobot',
+            'moverServo',
             self.listener_callback,
+            10) #creo un suscriptor
+        self.subscription = self.create_subscription(
+            Float32,
+            'walk',
+            self.walk_callback,
             10) #creo un suscriptor
         self.subscription # prevent unused variable warning
         self.servoController.sendInitialValues()
@@ -60,6 +84,10 @@ class MinimalSubscriber(Node):
     def listener_callback(self, msg):
         self.get_logger().info('Moviendo: "%d"' % msg.x)
         self.servoController.moveServo(int(msg.x),int(msg.y))
+
+    def walk_callback(self,msg):
+        self.servoController.walk()
+        self.servoController.sendInitialValues()
     
     def destroy_node(self):
         self.servoController.closeConnection()
