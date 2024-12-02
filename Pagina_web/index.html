@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ESP32 Servidor WEB</title>
+        <!-- Agregar los enlaces a los archivos CSS de Bootstrap -->
+        <style>
+            body {
+                background-color: #FFFFFF; /* Color de fondo gris claro */
+                text-align: center;
+                font-family: Arial, sans-serif;
+            }
+    
+            h1 {
+                color: #FF3034; /* Color de texto rojo */
+            }
+
+            h2 {
+                color: #646464;
+            }
+    
+            h3 {
+                color: #FF3034; /* Color de texto rojo */
+            }
+    
+            #container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80vh; /* Centrar en el centro de la página */
+            }
+    
+            #text-container {
+                flex: 1;
+                padding: 20px; /* Espacio alrededor del texto */
+                text-align: left; /* Alineación del texto a la izquierda */
+            }
+    
+            #buttonContainer {
+                flex: 1;
+                padding: 20px; /* Espacio alrededor de los botones */
+                text-align: left; /* Alineación de los botones a la izquierda */
+            }
+    
+            .form-check.form-switch {
+                margin-bottom: 10px; /* Espacio entre los botones de interruptor */
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6" id="text-container">
+                <h1>T1T4 Control WEB</h1>
+                <h3>Usando rosBridge</h3>
+            </div>
+            <div class="col-md-6" id="buttonContainer">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid"></div>
+        <h2>Caminar</h2>
+        <form action="/Walk" method="post">
+            <div class="btn-group" role="group">
+                <button type="submit" name="data" value="1" class="btn btn-success">Adelante</button>
+                <button type="submit" name="data" value="0" class="btn btn-danger">Atrás</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-fluid"></div>
+        <h2>Saludar</h2>
+        <form action="/Saludar" method="post">
+            <div class="btn-group" role="group">
+                <button type="submit" name="data" value="1" class="btn btn-success">Adelante</button>
+                <button type="submit" name="data" value="0" class="btn btn-danger">Atrás</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-fluid"></div>
+        <h2>Reiniciar</h2>
+        <form action="/Reset" method="post">
+            <div class="btn-group" role="group">
+                <button type="submit" name="data" value="1" class="btn btn-success">Volver a la posición inicial</button>
+            </div>
+        </form>
+    </div>
+
+    <form class="container-fluid" id="moverServoForm">
+        <label for="input1">Número 1:</label>
+        <input type="number" id="idServo" name="idServo" required><br><br>
+
+        <label for="input2">Número 2:</label>
+        <input type="number" id="pulseWidth" name="pulseWidth" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+<script>
+   // Configuración para enviar el formulario por POST
+   document.getElementById('moverServoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Obtener los valores de los inputs
+            const idServo = document.getElementById('idServo').value;
+            const pulseWidth = document.getElementById('pulseWidth').value;
+
+            // Enviar los valores al servidor usando fetch con método POST
+            fetch('http://192.168.1.1:3000/MoverServo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    idServo: idServo,
+                    pulseWidth: pulseWidth,
+                })
+            })
+        });
+    
+</script>
+</html>

@@ -31,15 +31,32 @@ class ServoController:
                          {'id' : 29, 'pulsewidth' : 950}, {'id' : 31, 'pulsewidth' : 1750}]
         for i in range(0,3):
             self.moveMultipleServos(walkSequence,700,0)
-            time.sleep(0.7)
+            time.sleep(0.9)
             self.moveMultipleServos(walkSequence2,700,0)
-            time.sleep(0.7)
+            time.sleep(0.9)
         
-
+    def saludar(self):
+        self.moveServo(10,2000,500)
+        time.sleep(0.5)
+        self.moveServo(10,1100,500)
+        time.sleep(0.5)
+        self.moveServo(10,2000,500)
+        time.sleep(0.5)
+        self.moveServo(10,1100,500)
+        time.sleep(0.5)
+        self.moveServo(10,2000,500)
+        time.sleep(0.5)
+        self.moveServo(12,800,200)
+        time.sleep(0.5)
+        self.moveServo(12,1660,500)
+        time.sleep(0.5)
+        self.moveServo(12,800,500)
+        time.sleep(0.5)
+        self.sendInitialValues()
 
 
     def sendInitialValues(self):
-        initialValues = [{'id' : 1, 'pulsewidth' : 1550}, {'id' : 2, 'pulsewidth' : 1800}, {'id' : 3, 'pulsewidth' : 2300}, {'id' : 4, 'pulsewidth' : 1800}, {'id' : 5, 'pulsewidth' : 1920},
+        initialValues = [{'id' : 1, 'pulsewidth' : 1450}, {'id' : 2, 'pulsewidth' : 1800}, {'id' : 3, 'pulsewidth' : 2300}, {'id' : 4, 'pulsewidth' : 1800}, {'id' : 7, 'pulsewidth' : 1000},
                          {'id' : 10, 'pulsewidth' : 1100}, {'id' : 11, 'pulsewidth' : 760}, {'id' : 12, 'pulsewidth' : 1660},
                          {'id' : 16, 'pulsewidth' : 1830},
                          {'id' : 21, 'pulsewidth' : 1150}, {'id' : 22, 'pulsewidth' : 1950},{'id' : 23, 'pulsewidth' : 1600},
@@ -69,13 +86,23 @@ class MinimalSubscriber(Node):
         self.servoController = ServoController()
         self.subscription = self.create_subscription(
             Vector3,
-            'moverServo',
+            'T1T4/moverServo',
             self.listener_callback,
             10) #creo un suscriptor
         self.subscription = self.create_subscription(
             Float32,
-            'walk',
+            'T1T4/walk',
             self.walk_callback,
+            10) #creo un suscriptor
+        self.subscription = self.create_subscription(
+            Float32,
+            'T1T4/reset',
+            self.reset_callback,
+            10) #creo un suscriptor
+        self.subscription = self.create_subscription(
+            Float32,
+            'T1T4/saludar',
+            self.saludar_callback,
             10) #creo un suscriptor
         self.subscription # prevent unused variable warning
         self.servoController.sendInitialValues()
@@ -89,7 +116,13 @@ class MinimalSubscriber(Node):
         self.servoController.walk()
         self.servoController.sendInitialValues()
     
-    def destroy_node(self):
+    def reset_callback(self,msg):
+        self.servoController.sendInitialValues()
+
+    def saludar_callback(self,msg):
+        self.servoController.saludar()
+    
+    def destroy_node(self,msg):
         self.servoController.closeConnection()
         super().destroy_node()
 

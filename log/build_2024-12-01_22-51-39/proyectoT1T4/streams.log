@@ -1,0 +1,25 @@
+[1.415s] Invoking command in '/home/robotica/ros2_ws/src/proyectoT1T4': PYTHONPATH=/home/robotica/ros2_ws/build/proyectoT1T4/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/proyectoT1T4 build --build-base /home/robotica/ros2_ws/build/proyectoT1T4/build install --record /home/robotica/ros2_ws/build/proyectoT1T4/install.log --single-version-externally-managed install_data
+[1.721s] running egg_info
+[1.740s] writing ../../build/proyectoT1T4/proyectoT1T4.egg-info/PKG-INFO
+[1.741s] writing dependency_links to ../../build/proyectoT1T4/proyectoT1T4.egg-info/dependency_links.txt
+[1.742s] writing entry points to ../../build/proyectoT1T4/proyectoT1T4.egg-info/entry_points.txt
+[1.743s] writing requirements to ../../build/proyectoT1T4/proyectoT1T4.egg-info/requires.txt
+[1.744s] writing top-level names to ../../build/proyectoT1T4/proyectoT1T4.egg-info/top_level.txt
+[1.785s] reading manifest file '../../build/proyectoT1T4/proyectoT1T4.egg-info/SOURCES.txt'
+[1.786s] adding license file 'LICENSE'
+[1.787s] writing manifest file '../../build/proyectoT1T4/proyectoT1T4.egg-info/SOURCES.txt'
+[1.787s] running build
+[1.787s] running build_py
+[1.789s] copying proyectoT1T4/nodo_robot.py -> /home/robotica/ros2_ws/build/proyectoT1T4/build/lib/proyectoT1T4
+[1.790s] running install
+[1.799s] running install_lib
+[1.819s] copying /home/robotica/ros2_ws/build/proyectoT1T4/build/lib/proyectoT1T4/nodo_robot.py -> /home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4
+[1.820s] byte-compiling /home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4/nodo_robot.py to nodo_robot.cpython-312.pyc
+[1.822s] running install_data
+[1.822s] running install_egg_info
+[1.844s] removing '/home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4-0.0.0-py3.12.egg-info' (and everything under it)
+[1.845s] Copying ../../build/proyectoT1T4/proyectoT1T4.egg-info to /home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages/proyectoT1T4-0.0.0-py3.12.egg-info
+[1.847s] running install_scripts
+[1.990s] Installing nodo_robot script to /home/robotica/ros2_ws/install/proyectoT1T4/lib/proyectoT1T4
+[1.991s] writing list of installed files to '/home/robotica/ros2_ws/build/proyectoT1T4/install.log'
+[2.066s] Invoked command in '/home/robotica/ros2_ws/src/proyectoT1T4' returned '0': PYTHONPATH=/home/robotica/ros2_ws/build/proyectoT1T4/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/robotica/ros2_ws/install/proyectoT1T4/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/proyectoT1T4 build --build-base /home/robotica/ros2_ws/build/proyectoT1T4/build install --record /home/robotica/ros2_ws/build/proyectoT1T4/install.log --single-version-externally-managed install_data
