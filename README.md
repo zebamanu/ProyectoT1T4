@@ -20,7 +20,7 @@
 - **Propósito:** *Ensamblar un robot de 17 DOF, desarrollar un firmware para poder controlarlo con una raspberry pi y lograr que se mueva, camine y responda a comandos.*  
 - **Objetivos principales:**  
   - Crear nodos ROS para el control de las extremidades del robot.
-  - Lograr el conexionado eléctrico y electróico para su correcto funcionamiento.
+  - Lograr el conexionado eléctrico y electrónico para su correcto funcionamiento.
   - Documentar los avances realizados para posibilitar futuras mejoras del sistema.
 
 ## **Características**
@@ -116,9 +116,9 @@ Para ejecutar el sistema:
 - Abre un issue para reportar errores o sugerencias.  
 
 ## **Créditos**
-- **Equipo:** [Matías Manuel Zeballos]{https://github.com/zebamanu}, [Matías Ezequiel Lugarzo]{https://github.com/MatiLuga} & [Sabrina Luz Lombardo]{https://github.com/SabriLomb}  
+- **Equipo:** [Matías Manuel Zeballos](https://github.com/zebamanu), [Matías Ezequiel Lugarzo](https://github.com/MatiLuga) & [Sabrina Luz Lombardo](https://github.com/SabriLomb)  
 - **Supervisores:** Juan Luis Rosendo, Profesor adjunto de la cátedra de Introducción a la Robótica (E1501)
-- **Institución:** [Facultad de Ingeniería, Universidad Nacional de La Plata]{https://ing.unlp.edu.ar/}
+- **Institución:** [Facultad de Ingeniería, Universidad Nacional de La Plata](https://ing.unlp.edu.ar/)
 
 ## **Licencia**
 Este proyecto está bajo la licencia [GNU 3.0](LICENSE.md).  
